@@ -5,6 +5,5 @@ import lombok.Data;
 
 
 @Entity
-
 public class Event extends Base {
 }

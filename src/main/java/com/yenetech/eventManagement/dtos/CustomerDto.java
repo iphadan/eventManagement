@@ -1,4 +1,4 @@
 package com.yenetech.eventManagement.dtos;
 
-public class CustomerDto {
+public class CustomerDto extends BaseDto{
 }
