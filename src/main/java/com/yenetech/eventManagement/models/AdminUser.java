@@ -1,10 +1,14 @@
-package com.yenetech.eventManagement.dtos;
+package com.yenetech.eventManagement.models;
 
-public class AdminDto extends BaseDto{
+import jakarta.persistence.Entity;
+
+@Entity
+public class AdminUser extends Base {
 
     private String username;
     private String fullName;
     private String email;
     private String phoneNumber;
     private Character gender;
+
 }
