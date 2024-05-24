@@ -6,6 +6,7 @@ public class CustomerDto extends BaseDto{
     private String fullName;
     private String paymentTicket;
     private Boolean isUsed;
+    private String secretKey;
 
-//    private EventDto event;
+
 }
