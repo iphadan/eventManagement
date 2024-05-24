@@ -8,6 +8,8 @@ import com.yenetech.eventManagement.repositories.EventRepository;
 import jdk.jfr.Event;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EventService {
     private final EventRepository eventRepository;
@@ -56,6 +58,24 @@ public class EventService {
 
         try{
              resultWrapper.setResult(EventMapper.INSTANCE.toEventDTO((eventRepository.save(EventMapper.INSTANCE.toEventEntity(eventDto)))));
+            resultWrapper.setMessage("success");
+            resultWrapper.setStatus(true);
+            return resultWrapper;
+        }catch (Exception e){
+            resultWrapper.setResult(null);
+            resultWrapper.setMessage("event does not exist");
+            resultWrapper.setStatus(false);
+            return resultWrapper;
+
+        }
+
+
+    }
+    public ResultWrapper<List<EventDto>> getAllEvents(EventDto eventDto){
+        ResultWrapper<List<EventDto>> resultWrapper= new ResultWrapper<List<EventDto>>();
+
+        try{
+            resultWrapper.setResult(EventMapper.INSTANCE.EventToEventDTOs((eventRepository.findAll())));
             resultWrapper.setMessage("success");
             resultWrapper.setStatus(true);
             return resultWrapper;
